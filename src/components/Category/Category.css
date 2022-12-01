@@ -1,0 +1,30 @@
+
+.c-column-id{
+    width: 10%;
+}
+    
+.c-column-name{
+    width: 45%;
+}
+
+
+.c-column-actions{
+    width: 45%;
+}
+
+.c-pagination-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.c-test{
+    height: 100%;
+}
+
+.c_error{
+    padding-left: 1rem;
+    color: red;
+    font-style: normal !important;
+    font-size: 0.9rem;
+}

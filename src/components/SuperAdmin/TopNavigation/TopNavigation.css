@@ -1,0 +1,40 @@
+
+.tn-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.tn-pull-right{
+    margin-left: auto;
+}
+
+.tn-modal{
+
+    background-color: #0005;
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+}
+
+.tn-modal-card{
+    /* background-color: #fff; */
+    height: fit-content;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+

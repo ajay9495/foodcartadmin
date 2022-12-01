@@ -1,0 +1,26 @@
+
+.vp-column-id{
+    width: 10%;
+}
+    
+.vp-column-name{
+    width: 30%;
+}
+
+.vp-column-category{
+    width: 20%;
+}
+
+.vp-column-instock{
+    width: 10%;
+}
+
+.vp-column-actions{
+    width: 30%;
+}
+
+.vp-pagination-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

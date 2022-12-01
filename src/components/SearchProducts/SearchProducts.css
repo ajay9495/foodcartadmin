@@ -1,0 +1,11 @@
+
+.sp-product-image{
+    width: 200px;
+}
+
+.sp_error{
+    padding-left: 1rem;
+    color: red;
+    font-style: normal !important;
+    font-size: 0.9rem;
+}

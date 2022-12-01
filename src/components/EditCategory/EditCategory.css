@@ -1,0 +1,30 @@
+
+.ec-column-id{
+    width: 10%;
+}
+    
+.ec-column-name{
+    width: 45%;
+}
+
+
+.ec-column-actions{
+    width: 45%;
+}
+
+.ec-pagination-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.ec-test{
+    height: 100%;
+}
+
+.ec_error{
+    padding-left: 1rem;
+    color: red;
+    font-style: normal !important;
+    font-size: 0.9rem;
+}
