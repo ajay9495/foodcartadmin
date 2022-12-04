@@ -52,31 +52,28 @@ export default function useDashboardLogic(){
 
     function processApiResponse(data){
 
-        console.log("processApiResponse");
-        console.log(data);
+        if(data.status == "success"){
 
-        // if(data.status == "success"){
+            if(data.payload.monthlyVisitors > 0){
 
-        //     if(data.payload.monthlyVisitors > 0){
+                newState =  {
+                    monthlyVisitors: data.payload.monthlyVisitors,
+                    monthlySales: data.payload.monthlySales,    
+                    dailyVisitorsBreakdown: data.payload.dailyVisitorsBreakdown,
+                    dailySalesBreakdown:  data.payload.dailySalesBreakdown
+                }
 
-        //         newState =  {
-        //             monthlyVisitors: data.payload.monthlyVisitors,
-        //             monthlySales: data.payload.monthlySales,    
-        //             dailyVisitorsBreakdown: data.payload.dailyVisitorsBreakdown,
-        //             dailySalesBreakdown:  data.payload.dailySalesBreakdown
-        //         }
+                setState(newState);
+            }
+            else{
+                alert("No Dashboard activity found for this account");
+            }
 
-        //         setState(newState);
-        //     }
-        //     else{
-        //         alert("No Dashboard activity found for this account");
-        //     }
+        }
+        else{
 
-        // }
-        // else{
-
-        //     alert("Could not get data from the server");
-        // }
+            alert("Could not get data from the server");
+        }
 
     }
     
