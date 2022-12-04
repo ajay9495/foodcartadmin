@@ -4,10 +4,7 @@ import useEditCategoryLogic from './useEditCategoryLogic'
 
 export default function EditCategory() {
 
-    const {state, change, form} = useEditCategoryLogic();
-
-    // console.log("state");
-    // console.log(state);
+    const {state, change, form, isLoading} = useEditCategoryLogic();
 
     return (
         <div className='content-wrapper '> 
@@ -45,6 +42,9 @@ export default function EditCategory() {
                                 <div id='ec-wrapper-submit' className="d-flex justify-content-center ">
                                     <button onClick={(e)=>{ change.validateInput(e) }} type="submit" className="btn btn-primary">Edit</button>
                                 </div> 
+                                <div className="ec-is-loading">
+                                    {(isLoading)&&"Updating data..."}
+                                </div>                                 
                             </div>   
                         </div>
                     </div>

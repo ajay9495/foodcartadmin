@@ -34,6 +34,7 @@ export default function useAddProductsLogic(){
         1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100
     ];
 
+    const [isLoading,setIsLoading] = useState(false);
     const [state,setState] = useState(INITIAL_STATE);
     const [categoryList,setCategoryList] =  useState([]);
     const {form} =  useAddProductsForm(setState);
@@ -150,6 +151,8 @@ export default function useAddProductsLogic(){
 
             if(vi_isValid){
 
+                setIsLoading(true);
+
                 postData(state)
                 .then((data) =>{    processPostResponse(data)    })
                 .catch((err)=>{     processError(err)           });
@@ -166,6 +169,7 @@ export default function useAddProductsLogic(){
 
     function processPostResponse(data){
 
+        setIsLoading(false);
 
         if(data.status == "success"){
 
@@ -330,7 +334,7 @@ export default function useAddProductsLogic(){
 
     return{
         state,  categoryList,   baseList,   
-            validateInput,
+        validateInput, isLoading,
         form, addSellingPriceField, removeSellingPriceField
     }
 

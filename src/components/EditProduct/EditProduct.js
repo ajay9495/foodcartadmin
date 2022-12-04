@@ -4,7 +4,7 @@ import useEditProductLogic from './useEditProductLogic';
 
 export default function EditProduct() {
 
-    const {form,state,categoryList,validateInput} = useEditProductLogic();
+    const {form,state,categoryList,validateInput,isLoading} = useEditProductLogic();
 
  
 
@@ -58,7 +58,10 @@ export default function EditProduct() {
                                                 </div>
                                                 <div id='ap-wrapper-submit' className="ap-submit-wrapper py-4">
                                                     <button onClick={validateInput} type="submit" className="btn btn-primary btn-lg btn-block">Add</button>
-                                                </div>  
+                                                </div> 
+                                                <div className="ep-is-loading">
+                                                    {(isLoading)&&"Updating data..."}
+                                                </div> 
                                             </div>
                                             <div id='ap-right-section' className="col-sm-6 px-4 ">     
                                                 <div id='ap-wrapper-mrp' className="form-group">

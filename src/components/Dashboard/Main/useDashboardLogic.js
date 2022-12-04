@@ -17,6 +17,8 @@ export default function useDashboardLogic(){
     const [state,setState] = useState(initialState);
     let localUser = getLocalUserData(); 
 
+
+
     let STORE_ID = localUser.store_id;    
     let END_POINT ="";
     let BASE_URL = config.CURRENT_BASE_URL;
@@ -44,7 +46,8 @@ export default function useDashboardLogic(){
         .catch((err)=>{
             processApiError(err);
         });
-    
+
+   
     }
 
     function processApiResponse(data){

@@ -6,7 +6,7 @@ export default function AddProduct() {
 
     const {
         form,state,categoryList,baseList,change,validateInput,
-        addSellingPriceField, removeSellingPriceField
+        addSellingPriceField, removeSellingPriceField, isLoading
     } = useAddProductsLogic();
 
     return (
@@ -61,6 +61,9 @@ export default function AddProduct() {
                                                     <div id='ap-wrapper-submit' className="ap-submit-wrapper py-4">
                                                         <button id="submit" onClick={validateInput} type="submit" className="btn btn-primary btn-lg btn-block">Add</button>
                                                     </div>  
+                                                    <div className="ap-is-loading">
+                                                        {(isLoading)&&"Posting data..."}
+                                                    </div>                                                     
                                                 </div>
                                                 <div id='ap-right-section' className="col-sm-6 px-4 ">     
                                                     <div id='ap-wrapper-mrp' className="form-group">

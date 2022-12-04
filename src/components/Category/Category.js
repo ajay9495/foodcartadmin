@@ -5,8 +5,8 @@ import Table from './Table/Table';
 
 export default function Category() {
 
-
-    const {form, state,tableState,change} = CategoryLogic();
+ 
+    const {form, state,tableState,change,isLoading} = CategoryLogic();
    
 
 
@@ -40,6 +40,9 @@ export default function Category() {
                             <div id='c-wrapper-submit' className="d-flex justify-content-center ">
                                 <button onClick={change.validateInput} type="submit" className="btn btn-primary">Add</button>
                             </div> 
+                            <div className="c-is-loading">
+                                {(isLoading)&&"Posting data..."}
+                            </div>                              
                         </div>   
                     </div>
                 </div>

@@ -44,7 +44,8 @@ export default function useEditProductLogic(){
         {id:"image",value:null,error:""},
         {id:"image_url",value:"",error:""}
     ];
-
+ 
+    const [isLoading,setIsLoading] = useState(false);
     const [state,setState] = useState(INITIAL_STATE);
     const [categoryList,setCategoryList] =  useState([]);
     const [unitList, setUnitList] = useState([]);
@@ -182,29 +183,10 @@ export default function useEditProductLogic(){
 
     }
 
-    function processUnitData(data){
 
-        return new Promise((resolve,reject)=>{
-
-            if(data.status == "success"){
-
-                setUnitList((prevState)=>{
-                    return pud_initialArr.concat(data.payload);
-                });
-
-            }
-            else{
-
-                alert("Failed to get the category data from the server.");
-            }
-
-            resolve("helllo unitData success");
-
-        });
-
-    }
 
     function processProductData(data){
+
 
         if(data.status == "success"){
 
@@ -247,10 +229,6 @@ export default function useEditProductLogic(){
 
             alert("Failed to get product data from the server.");
         }
-
-      
-
-
 
 
 
@@ -343,16 +321,13 @@ export default function useEditProductLogic(){
 
             if(vi_isValid){
 
-                console.log("valid");
-
+                setIsLoading(true);
+                
                 api.postData(state)
                 .then((data)=>{     processPostResponse(data)   })
                 .catch((err)=>{     api.processError(err)       });
             }
-            else{
 
-                console.log("invalid");
-            }
 
             return(newState);
 
@@ -363,6 +338,8 @@ export default function useEditProductLogic(){
 
     function processPostResponse(data){
         
+        setIsLoading(false);
+
         if(data.status == "success"){
             alert("Successfully updated data");
             sharedModules.refreshPage();
@@ -395,7 +372,8 @@ export default function useEditProductLogic(){
         validateInput,
         form,
         addSellingPriceField, 
-        removeSellingPriceField
+        removeSellingPriceField,
+        isLoading
     }
 
 

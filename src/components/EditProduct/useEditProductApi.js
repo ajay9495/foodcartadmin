@@ -1,5 +1,5 @@
 import useSharedConfig from "../../shared/js/SharedConfig/SharedConfig";
- 
+
 export default function useEditProductsApi(){
 
     const {config} = useSharedConfig();

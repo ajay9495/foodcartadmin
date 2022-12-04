@@ -31,6 +31,7 @@ export default function CategoryLogic(){
         pagesArr:[]
     }
 
+    const [isLoading,setIsLoading] = useState(false);
     const [state,setState] = useState(initialState);
     const [tableState,setTableState] = useState(initialTableState);
     const {form} = useCategoryForm(setState);
@@ -80,6 +81,8 @@ export default function CategoryLogic(){
             });
 
             if (vi_isValid) {
+
+                setIsLoading(true);
 
                 api.postData(state)
                 .then((data) => processPostResponse(data))
@@ -208,6 +211,8 @@ export default function CategoryLogic(){
 
     function processPostResponse(data){
 
+        setIsLoading(false);
+
         if(data.status == "success"){
             alert("Successfully post data in the database");
             sharedModules.refreshPage();
@@ -250,7 +255,8 @@ export default function CategoryLogic(){
         form,
         state,
         change,
-        tableState
+        tableState,
+        isLoading
     }
 
 }

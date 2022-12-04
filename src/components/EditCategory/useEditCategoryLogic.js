@@ -25,6 +25,7 @@ export default function useEditCategoryLogic(){
         {id:'imageUrl',value:"",error:""}
     ];
 
+    const [isLoading,setIsLoading] = useState(false);
     const [state,setState] = useState(initialState);
     const {form} = useEditCategoryForm(setState);
     const {api} = useEditCategoryApi();
@@ -63,6 +64,9 @@ export default function useEditCategoryLogic(){
             });
 
             if (vi_isValid) {
+
+                setIsLoading(true);
+
                 api.postData(state)
                 .then((data)=>{     processPostResponse(data)           })
                 .catch((err)=>{     api.processApiError(err)    });
@@ -108,6 +112,8 @@ export default function useEditCategoryLogic(){
  
     function processPostResponse(data){
 
+        setIsLoading(false);
+
         if(data.status == "success"){
             alert("Successfully updated data");
             sharedModules.refreshPage();
@@ -127,7 +133,8 @@ export default function useEditCategoryLogic(){
     return{
         state,
         change,
-        form
+        form,
+        isLoading
     }
 
 }
